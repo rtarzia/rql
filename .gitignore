@@ -1,5 +1,5 @@
 #ignore object files
-*.o
+src/obj/
 
 #ignore executable
-/src/rql
+src/rql
