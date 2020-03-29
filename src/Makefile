@@ -1,7 +1,3 @@
-
-#CXXFLAGS = -g -I /usr/local/boost_1_66_0
-
-
 IDIR =../include
 ODIR=obj
 CC=g++

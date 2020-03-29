@@ -9,11 +9,6 @@ void list_help()
   std::cout << help << std::endl;
 }
 
-StatementType get_statement_type(std::string cmd)
-{
-  return INSERT_ST;
-}
-
 void parse_command(std::string cmd)
 {
   switch(get_statement_type(cmd))
@@ -31,9 +26,21 @@ void parse_command(std::string cmd)
       std::cout << "delete" << std::endl;
       break;
     case UNRECOGNIZED_ST:
-      std::cout << "unrecognized" << std::endl;
+      std::cout << "Error, invalid command." << std::endl;
       break;
   }
+}
 
-  std::cout << "Error, invalid command." << std::endl;
+StatementType get_statement_type(std::string cmd)
+{
+  if (cmd.compare(0, 6, "insert") == 0)
+    return INSERT_ST;
+  else if (cmd.compare(0, 6, "select") == 0)
+    return SELECT_ST;
+  else if (cmd.compare(0, 6, "update") == 0)
+    return UPDATE_ST;
+  else if (cmd.compare(0, 6, "delete") == 0)
+      return DELETE_ST;
+  else
+    return UNRECOGNIZED_ST;
 }
